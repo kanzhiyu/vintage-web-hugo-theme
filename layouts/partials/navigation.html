@@ -68,8 +68,8 @@
             {{ end }}
         {{ end }}
 
-        <!-- RSS Feed -->
-        {{ with .Site.Language.Locale }}
+        <!-- RSS Feed（由 params.show_rss 控制，默认不显示） -->
+        {{ if .Site.Params.show_rss }}
         <li class="nav-item">
             <a href="{{ ($.Site.Home.OutputFormats.Get "RSS").RelPermalink | absURL }}" class="nav-link">📡 RSS</a>
         </li>
