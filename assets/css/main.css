@@ -9,23 +9,25 @@
 
 /* Custom Properties for Theme Colors */
 :root {
-    --bg-primary: #F5E6E8;
-    --bg-secondary: #E8D5D7;
-    --bg-window: #F0F0F0;
-    --border-dark: #808080;
-    --border-light: #FFFFFF;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #E7E2D2;
+    --bg-window: #ECE9D8;
+    --border-dark: #404040;
+    --border-light: #9C9C9C;
     --text-primary: #000000;
     --text-secondary: #333333;
     --text-link: #0000EE;
     --text-visited: #551A8B;
     --accent-teal: #008080;
     --accent-pink: #FFB6C1;
-    --button-face: #C0C0C0;
+    --button-face: #D4D0C8;
     --highlight: #316AC5;
     --shadow: rgba(0, 0, 0, 0.3);
 }
 
-/* Dark Mode Variables */
+/* ===== 已停用自动深色模式：整站固定浅色（纯白底 + 米白窗口）=====
+   要恢复，把下面整段注释去掉即可：
+/* Dark Mode Variables * /
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-primary: #2C1B47;
@@ -44,6 +46,7 @@
         --shadow: rgba(0, 0, 0, 0.6);
     }
 }
+*/
 
 /* Manual Dark Mode Class Override */
 [data-theme="dark"] {
@@ -65,18 +68,18 @@
 
 /* Light Mode Class Override */
 [data-theme="light"] {
-    --bg-primary: #F5E6E8;
-    --bg-secondary: #E8D5D7;
-    --bg-window: #F0F0F0;
-    --border-dark: #808080;
-    --border-light: #FFFFFF;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #E7E2D2;
+    --bg-window: #ECE9D8;
+    --border-dark: #404040;
+    --border-light: #9C9C9C;
     --text-primary: #000000;
     --text-secondary: #333333;
     --text-link: #0000EE;
     --text-visited: #551A8B;
     --accent-teal: #008080;
     --accent-pink: #FFB6C1;
-    --button-face: #C0C0C0;
+    --button-face: #D4D0C8;
     --highlight: #316AC5;
     --shadow: rgba(0, 0, 0, 0.3);
 }
@@ -116,8 +119,8 @@ a:visited {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--border-dark);
-    border-top: 1px solid rgba(255,255,255,0.5);
-    border-left: 1px solid rgba(255,255,255,0.3);
+    border-top: 1px solid rgba(0,0,0,0.35);
+    border-left: 1px solid rgba(0,0,0,0.25);
     border-right: 1px solid rgba(0,0,0,0.3);
     text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
 }
@@ -136,7 +139,8 @@ a:visited {
     width: 16px;
     height: 14px;
     background: var(--button-face);
-    border: 1px outset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
     font-size: 8px;
     text-align: center;
     line-height: 12px;
@@ -145,7 +149,8 @@ a:visited {
 }
 
 .window-button:active {
-    border: 1px inset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
 }
 
 .window-content {
@@ -178,7 +183,8 @@ a:visited {
 /* Navigation */
 .site-nav {
     background: var(--button-face);
-    border: 1px outset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
     padding: 4px;
     margin: 8px 0;
 }
@@ -198,7 +204,8 @@ a:visited {
     display: block;
     padding: 4px 8px;
     background: var(--button-face);
-    border: 1px outset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
     color: var(--text-primary);
     text-decoration: none;
     font-size: 11px;
@@ -212,7 +219,8 @@ a:visited {
 }
 
 .nav-link:active {
-    border: 1px inset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
 }
 
 /* Content Areas */
@@ -322,7 +330,8 @@ a:visited {
 
 .content ol ol > li::before {
     background: var(--bg-secondary);
-    border: 1px inset var(--border-dark);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     font-size: 8px;
 }
 
@@ -331,14 +340,16 @@ a:visited {
     font-family: 'Courier New', monospace;
     font-size: 10px;
     background: var(--bg-secondary);
-    border: 1px inset var(--border-dark);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     padding: 1px 3px;
 }
 
 .content pre {
     background: #000000;
     color: #00FF00;
-    border: 2px inset var(--border-dark);
+    border: 2px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     padding: 8px;
     margin: 8px 0;
     overflow-x: auto;
@@ -357,7 +368,8 @@ a:visited {
 /* Blockquotes */
 .content blockquote {
     background: var(--bg-secondary);
-    border: 1px inset var(--border-dark);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     padding: 8px;
     margin: 8px 0;
     font-style: italic;
@@ -369,7 +381,8 @@ a:visited {
     margin: 8px 0;
     width: 100%;
     background: var(--bg-window);
-    border: 2px outset var(--border-dark);
+    border: 2px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
 }
 
 .content th,
@@ -415,7 +428,8 @@ a:visited {
 
 .image-gallery figure {
     background: var(--bg-window);
-    border: 1px outset var(--border-dark);
+    border: 1px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
     padding: 4px;
 }
 
@@ -430,7 +444,8 @@ a:visited {
 /* Buttons and Form Elements */
 .btn {
     background: var(--button-face);
-    border: 1px outset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
     padding: 4px 8px;
     font-family: inherit;
     font-size: 11px;
@@ -447,7 +462,8 @@ a:visited {
 }
 
 .btn:active {
-    border: 1px inset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
 }
 
 /* Post Lists */
@@ -458,7 +474,8 @@ a:visited {
 
 .post-list-item {
     background: var(--bg-window);
-    border: 1px outset var(--border-dark);
+    border: 1px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
     padding: 8px;
     margin-bottom: 4px;
 }
@@ -504,7 +521,8 @@ a:visited {
     padding: 4px 8px;
     margin: 0 2px;
     background: var(--button-face);
-    border: 1px outset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
     color: var(--text-primary);
     text-decoration: none;
     font-size: 10px;
@@ -518,13 +536,15 @@ a:visited {
 .pagination .current {
     background: var(--highlight);
     color: white;
-    border: 1px inset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
 }
 
 /* Sidebar */
 .sidebar {
     background: var(--bg-window);
-    border: 2px inset var(--border-dark);
+    border: 2px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     padding: 8px;
     margin: 8px 0;
 }
@@ -610,7 +630,8 @@ a:visited {
 /* Status Bar */
 .status-bar {
     background: var(--button-face);
-    border: 1px inset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     padding: 2px 4px;
     font-size: 10px;
     position: fixed;
@@ -633,7 +654,8 @@ a:visited {
 
 .status-item {
     padding: 1px 4px;
-    border: 1px inset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     background: var(--bg-window);
     font-size: 9px;
 }
@@ -646,14 +668,16 @@ body {
 /* Browser Chrome Effect */
 .browser-chrome {
     background: var(--button-face);
-    border: 2px outset var(--button-face);
+    border: 2px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
     padding: 4px;
     margin-bottom: 8px;
 }
 
 .address-bar {
-    background: white;
-    border: 1px inset var(--border-dark);
+    background: var(--bg-primary);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     padding: 2px 4px;
     margin: 2px 0;
     font-family: 'Courier New', monospace;
@@ -669,7 +693,8 @@ body {
 .toolbar-button {
     padding: 2px 6px;
     background: var(--button-face);
-    border: 1px outset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
     font-size: 9px;
     cursor: pointer;
 }
@@ -680,7 +705,8 @@ body {
 }
 
 .toolbar-button:active {
-    border: 1px inset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
 }
 
 /* Special Elements */
@@ -695,7 +721,8 @@ body {
 
 .marquee {
     background: var(--bg-secondary);
-    border: 1px inset var(--border-dark);
+    border: 1px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     padding: 4px;
     overflow: hidden;
     white-space: nowrap;
@@ -719,7 +746,8 @@ body {
 .tag-cloud a {
     display: inline-block;
     background: var(--button-face);
-    border: 1px outset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
     padding: 2px 4px;
     margin: 1px;
     font-size: 9px;
@@ -744,7 +772,8 @@ body {
     margin: 8px 0 4px 0;
     padding: 2px 4px;
     background: var(--button-face);
-    border: 1px outset var(--button-face);
+    border: 1px solid;
+    border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
 }
 
 .archive-month {
@@ -765,7 +794,8 @@ body {
 /* Comments Section */
 .comments {
     background: var(--bg-window);
-    border: 2px inset var(--border-dark);
+    border: 2px solid;
+    border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     padding: 8px;
     margin-top: 16px;
 }
